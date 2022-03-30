@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:56:51 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/30 21:21:56 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/03/30 23:53:52 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,22 @@ Contact::~Contact()
 {
 }
 
-void	Contact::setContact(int index)
+void	Contact::setContact(int ID)
 {
-	this->_index = index;
+	this->_ID = ID;
+	std::cout << std::endl << MAGENTA << "Please fill the following form :" << RESET << std::endl;
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << BLUE << Contact::_fields[i] << ": " << RESET;
 		while (std::getline(std::cin, this->_items[i]) && this->_items[i].empty())
-			std::cout << RED << "Empty field, please try again :" << RESET << std::endl;
+			std::cout << RED << "Empty field, please try again :" << RESET;
 	}
-	std::cout << GREEN << "Contact " << index << " successfully added !" << RESET << std::endl;
+	std::cout << GREEN << "Contact " << ID << " successfully added !" << RESET << std::endl;
 }
 
 void	Contact::showContactAsList(void)
 {
-	std::cout << MAGENTA << "|" << std::setw(10) << this->_index;
+	std::cout << MAGENTA << "|" << std::setw(10) << this->_ID;
 	for (int i = 0; i < 3; i++)
 	{
 		std::cout << "|";
@@ -58,8 +59,9 @@ void	Contact::showContactAsList(void)
 
 void	Contact::displayContact(void)
 {
-	std::cout << MAGENTA << "Contact [" << this->_index << "] darkest secrets :" << std::endl;
-	for (int i = 0; i <= 5; i++)
+	std::cout << std::endl << BOLDMAGENTA << "CONTACT " << this->_ID;
+	std::cout << " DARKEST SECRETS" << std::endl << MAGENTA;
+	for (int i = 0; i < 5; i++)
 	{
 		std::cout << Contact::_fields[i] << " : ";
 		std::cout << this->_items[i] << std::endl;

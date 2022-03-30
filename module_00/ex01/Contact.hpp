@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:14:43 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/30 20:36:22 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/03/30 23:46:45 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define YELLOW  "\x1b[33m"
 # define BLUE    "\x1b[34m"
 # define MAGENTA "\x1b[35m"
+# define BOLDMAGENTA "\x1b[35;1m"
 # define CYAN    "\x1b[36m"
 # define RESET   "\x1b[0m"
 
@@ -30,12 +31,12 @@ class	Contact
 	public:
 		Contact();
 		~Contact();
-		void	setContact(int index);
+		void	setContact(int ID);
 		void	showContactAsList();
 		void	displayContact();
 
 	private:
-		int					_index;
+		int					_ID;
 		static std::string	_fields[5];
 		std::string			_items[5];
 };
