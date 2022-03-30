@@ -6,19 +6,19 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/03/30 19:32:54 by cberganz         ###   ########.fr        #
+#    Updated: 2022/03/30 21:16:32 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= My_Awesome_PhoneBook
 
-HEADER		= PhoneBook.hpp contact.hpp
+HEADER		= PhoneBook.hpp Contact.hpp
 
 CC			= clang++
 
 CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
-SRCS	 	= PhoneBook.cpp contact.cpp main.cpp
+SRCS	 	= PhoneBook.cpp Contact.cpp main.cpp
 
 OBJS		= $(SRCS:.c=.o)
 

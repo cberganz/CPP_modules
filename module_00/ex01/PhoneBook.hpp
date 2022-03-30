@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 00:05:17 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/30 18:49:02 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/03/30 21:18:25 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string>
 # include <stdio.h>
 # include <cstddef>
-# include "contact.hpp"
+# include "Contact.hpp"
 
 # define RED     "\x1b[31;1m"
 # define GREEN   "\x1b[32m"
@@ -33,10 +33,10 @@ class PhoneBook
 	public:
 		PhoneBook();
 		~PhoneBook();
-		std::string	open(int firstCall = 1);
+		void		open();
 		void		addContact();
 		void		displayContacts();
-		std::string	searchContact(int firstCall = 1);
+		void		searchContact();
 
 	private:
 		Contact		_contacts[8];

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:14:43 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/30 18:42:01 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/03/30 20:36:22 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ class	Contact
 	public:
 		Contact();
 		~Contact();
-		bool	setContact(int index);
-		void	displayHeader(bool showSecret);
-		void	displayContact(bool showSecret);
+		void	setContact(int index);
+		void	showContactAsList();
+		void	displayContact();
 
 	private:
 		int					_index;
