@@ -5,18 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/28 00:22:00 by cberganz          #+#    #+#              #
-#    Updated: 2022/03/31 12:47:09 by cberganz         ###   ########.fr        #
+#    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
+#    Updated: 2022/03/31 13:45:48 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= megaphone
+NAME		= Zombie
 
-CC		= clang++
+HEADER		= Zombie.hpp
+
+CC			= clang++
 
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS	 	= megaphone.cpp
+SRCS	 	= Zombie.cpp\
+		 		 newZombie.cpp\
+				 randomChump.cpp\
+				 main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
@@ -29,10 +34,10 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm $(NAME)
 
 re: fclean all
 

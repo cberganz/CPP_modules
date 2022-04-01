@@ -5,31 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/28 00:22:00 by cberganz          #+#    #+#              #
-#    Updated: 2022/03/31 12:47:09 by cberganz         ###   ########.fr        #
+#    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
+#    Updated: 2022/03/31 16:50:53 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= megaphone
+NAME		= HumanBattle
 
-CC		= clang++
+CC			= clang++
 
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS	 	= megaphone.cpp
+SRCS	 	= HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -I. -o $@ $^
 
-%.o: %.cpp $(HEADER)
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

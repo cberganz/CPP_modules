@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 00:28:58 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/31 13:27:44 by cberganz         ###   ########.fr       */
+/*   Created: 2022/04/01 02:44:55 by cberganz          #+#    #+#             */
+/*   Updated: 2022/04/01 03:12:52 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "MySed.hpp"
 
 int	main(int argc, char *argv[])
 {
-	int i;
-	int j;
-
-	i = 1;
-	if (argc == 1)
+	if (argc != 4)
 	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		std::cout << "Usage: ./sed fileName toReplace toInsert" << std::endl;
 		return (0);
 	}
-	while (i < argc)
+	MySed	mySed(argv[1], argv[2], argv[3]);
+	if (!mySed.sed())
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
-				std::cout << (char)(argv[i][j] - 32);
-			else
-				std::cout << argv[i][j];
-			j++;
-		}
-		i++;
-		if (i < argc)
-			std::cout << " ";
+		std::cout << "Error while openning file !" << std::endl;
+		return (1);
 	}
-	std::cout << std::endl;
+	std::cout << "Replacement has been done in " << argv[1] << ".replace\n";
 	return (0);
 }

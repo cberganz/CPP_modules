@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 00:05:17 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/30 21:18:25 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/03/31 12:59:01 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include <stdio.h>
 # include <cstddef>

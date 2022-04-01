@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 20:37:27 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/01 00:43:07 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/04/01 00:07:42 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << BOLDMAGENTA << "\n\nGOODBYE\n\n" << RESET;
 }
 
 void	PhoneBook::open(void)
 {
 	std::string	input;
+//	void	*ptr = (void *)1;
 
-	while (not std::cin.eof())
+	while (std::cin.eof())
 	{
 		std::cout << std::endl << BOLDMAGENTA << "WELCOME TO YOUR PHONEBOOK" << RESET << std::endl;
 		std::cout << CYAN << "1. Add a contact (ADD)" << RESET << std::endl;
 		std::cout << CYAN << "2. Search for a contact secrets (SEARCH)" << RESET << std::endl;
-		std::cout << CYAN << "3. Exit PhoneBook (EXIT or CTRL-D)" << RESET << std::endl;
+		std::cout << CYAN << "3. Exit PhoneBook (EXIT)" << RESET << std::endl;
 		std::cout << BLUE << std::endl << "What do you want to do ? " << RESET;
 		while (std::getline(std::cin, input) and input != "EXIT" and input != "ADD" and input != "SEARCH")
 			std::cout << RED << "Wrong input, please try again : " << RESET;
@@ -42,7 +42,7 @@ void	PhoneBook::open(void)
 		else if (input == "SEARCH")
 			this->searchContact();
 		else if (input == "EXIT")
-			break ;
+			return ;
 	}
 }
 
@@ -78,7 +78,7 @@ void PhoneBook::searchContact(void)
 		for (int i = 0; i < this->_nbContacts; i++)
 			this->_contacts[i].showContactAsList();
 		std::cout << BLUE << std::endl << "Which secret you wanna know ? " << RESET;
-		while (std::getline(std::cin, input) and not std::cin.eof())
+		while (std::getline(std::cin, input))
 		{
 			sscanf(input.c_str(), "%d", &ID);
 			if (ID < 1 || ID > this->_nbContacts)
@@ -88,7 +88,6 @@ void PhoneBook::searchContact(void)
 			}
 			break ;
 		}
-		if (not std::cin.eof())
-			this->_contacts[ID - 1].displayContact();
+		this->_contacts[ID - 1].displayContact();
 	}
 }

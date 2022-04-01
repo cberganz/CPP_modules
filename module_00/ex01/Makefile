@@ -6,35 +6,33 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/03/30 21:16:32 by cberganz         ###   ########.fr        #
+#    Updated: 2022/04/01 00:37:09 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= My_Awesome_PhoneBook
 
-HEADER		= PhoneBook.hpp Contact.hpp
-
-CC			= clang++
+CC		= clang++
 
 CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
 SRCS	 	= PhoneBook.cpp Contact.cpp main.cpp
 
-OBJS		= $(SRCS:.c=.o)
+OBJS		= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $@
+%.o: %.cpp $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm
+	rm -f $(OBJS)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

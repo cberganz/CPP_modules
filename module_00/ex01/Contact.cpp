@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:56:51 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/30 23:53:52 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/04/01 00:15:39 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ void	Contact::setContact(int ID)
 {
 	this->_ID = ID;
 	std::cout << std::endl << MAGENTA << "Please fill the following form :" << RESET << std::endl;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; not std::cin.eof() and i < 5; i++)
 	{
 		std::cout << BLUE << Contact::_fields[i] << ": " << RESET;
-		while (std::getline(std::cin, this->_items[i]) && this->_items[i].empty())
+		while (not std::cin.eof() and std::getline(std::cin, this->_items[i]) and this->_items[i].empty())
 			std::cout << RED << "Empty field, please try again :" << RESET;
 	}
-	std::cout << GREEN << "Contact " << ID << " successfully added !" << RESET << std::endl;
+	if (not std::cin.eof())
+		std::cout << GREEN << "Contact " << ID << " successfully added !" << RESET << std::endl;
 }
 
 void	Contact::showContactAsList(void)
