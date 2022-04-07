@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 18:55:32 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/07 18:55:34 by cberganz         ###   ########.fr       */
+/*   Created: 2022/04/06 18:39:39 by cberganz          #+#    #+#             */
+/*   Updated: 2022/04/07 16:13:52 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_H
-# define HARL_H
+#ifndef POINT_HPP
+# define POINT_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include "Fixed.hpp"
 
-class	Harl {
+class	Point {
 
 public:
-	Harl();
-	~Harl();
-	void			complain( std::string level );
-	void			filteredComplain( std::string filter );
+	Point();
+	Point(Fixed const &x, Fixed const &y);
+	Point(Point const &point);
+	~Point();
+
+	Point	&operator=(Point const &point);
+
+	Fixed const	&getX(void) const;
+	Fixed const	&getY(void) const;
 
 private:
-	void			debug();
-	void			info();
-	void			warning();
-	void			error();
-	void			other();
-	typedef void	(Harl::*func)(void);
-	typedef struct	s_funcPtr
-	{
-		std::string	name;
-		func		ptr;
-	} t_funcPtr;
+	Fixed	_x; // Should be const
+	Fixed	_y;
 };
+
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

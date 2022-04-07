@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/07 19:21:05 by cberganz          #+#    #+#             */
+/*   Updated: 2022/04/07 19:21:07 by cberganz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 Harl::Harl()
@@ -57,7 +69,7 @@ void	Harl::complain( std::string level )
 
 void	Harl::filteredComplain( std::string filter )
 {
-	int	i = 0;
+	int	i = 0, isOther = 1;
 	std::string arr[] = { "DEBUG", "INFO", "WARNING", "ERROR", "OTHER" }; 
 
 	while (arr[i] != filter and arr[i] != "OTHER")
@@ -65,8 +77,10 @@ void	Harl::filteredComplain( std::string filter )
 	while (arr[i] != "OTHER")
 	{
 		this->complain(arr[i]);
+		std::cout << std::endl;
+		isOther = 0;
 		i++;
 	}
-	if (arr[i] == "OTHER")
+	if (isOther)
 		this->complain(arr[i]);
 }

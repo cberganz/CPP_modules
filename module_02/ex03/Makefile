@@ -6,27 +6,26 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/04/07 19:25:20 by cberganz         ###   ########.fr        #
+#    Updated: 2022/04/07 19:22:40 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= AccountManager
+NAME		= bsp
 
-CC		= clang++
+CC			= clang++
 
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS	 	= tests.cpp\
-		  Account.cpp
+SRCS	 	= main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -I. -o $@ $^
 
-%.o: %.cpp $(HEADER)
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
