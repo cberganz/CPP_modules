@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 18:55:32 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/07 18:55:34 by cberganz         ###   ########.fr       */
+/*   Created: 2022/04/08 01:42:16 by cberganz          #+#    #+#             */
+/*   Updated: 2022/04/08 02:14:26 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_H
-# define HARL_H
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
+#include "ClapTrap.hpp"
 #include <iostream>
 #include <string>
 
-class	Harl {
+class	ScavTrap : public ClapTrap
+{
+	public:
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const &other);
+		~ScavTrap();
 
-public:
-	Harl();
-	~Harl();
-	void			complain( std::string level );
-	void			multipleComplain( int begin );
-	void			filteredComplain( std::string filter );
+		using		ClapTrap::operator=;
 
-private:
-	void			debug();
-	void			info();
-	void			warning();
-	void			error();
-	void			other();
-	typedef void	(Harl::*func)(void);
-	typedef struct	s_funcPtr
-	{
-		std::string	name;
-		func		ptr;
-	} t_funcPtr;
+		void		attack(std::string const &target);
+		void		guardGate() const;
+
 };
 
 #endif

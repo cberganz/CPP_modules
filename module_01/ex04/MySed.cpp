@@ -26,21 +26,26 @@ MySed::~MySed()
 
 bool	MySed::sed(void)
 {
-	std::string::size_type			pos;
-	std::string line, save;
+	std::string::size_type	pos;
+	std::string				line, save;
+
 	std::ifstream fileIn(this->_fileName.c_str());
 	if (!fileIn)
 		return (false);
 	while (std::getline(fileIn, line))
 		save.append(line.append("\n"));
-	while ((pos = save.find(this->_toReplace)) and pos != std::string::npos)
+	while ((pos = save.find(this->_toReplace)) >= 0 and pos != std::string::npos)
 	{
 		save.erase(pos, this->_toReplace.length());
 		save.insert(pos, this->_toInsert);
 	}
+	fileIn.close();
+
 	std::ofstream fileOut(this->_fileName.append(".replace").c_str());
 	if (!fileOut)
 		return (false);
 	fileOut << save;
+	fileOut.close();
+
 	return (true);
 }

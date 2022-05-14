@@ -59,28 +59,56 @@ void	Harl::complain( std::string level )
 		{std::string("END"), NULL}
 	};
 
-	for (int i = 0 ; funcPtrs[i].name != "END" ; i++)
+	for (int i = 0 ; funcPtrs[i].name != "END" ; i++) {
 		if (funcPtrs[i].name == level || funcPtrs[i].name == "OTHER")
 		{
 			(this->*funcPtrs[i].ptr)();
 			break ;
 		}
+	}
+}
+
+void	Harl::multipleComplain( int begin )
+{
+	std::string arr[] = { "DEBUG", "INFO", "WARNING", "ERROR", "OTHER" }; 
+
+	while (arr[begin] != "OTHER") {
+		this->complain(arr[begin]);
+		std::cout << std::endl;
+		begin++;
+	}
+}
+
+int		resolveFilter( std::string filter )
+{
+	if (filter == "DEBUG") return 1;
+	else if (filter == "INFO") return 2;
+	else if (filter == "WARNING") return 3;
+	else if (filter == "ERROR") return 4;
+	else return 0;
 }
 
 void	Harl::filteredComplain( std::string filter )
 {
-	int	i = 0, isOther = 1;
-	std::string arr[] = { "DEBUG", "INFO", "WARNING", "ERROR", "OTHER" }; 
+	switch (resolveFilter(filter)) {
 
-	while (arr[i] != filter and arr[i] != "OTHER")
-		i++;
-	while (arr[i] != "OTHER")
-	{
-		this->complain(arr[i]);
-		std::cout << std::endl;
-		isOther = 0;
-		i++;
+		case 1:
+			this->multipleComplain(0);
+			break;
+
+		case 2:
+			this->multipleComplain(1);
+			break;
+
+		case 3:
+			this->multipleComplain(2);
+			break;
+
+		case 4:
+			this->multipleComplain(3);
+			break;
+
+		default:
+			this->other();
 	}
-	if (isOther)
-		this->complain(arr[i]);
 }
