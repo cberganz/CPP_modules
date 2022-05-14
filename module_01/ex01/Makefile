@@ -6,17 +6,17 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/03/31 16:51:35 by cberganz         ###   ########.fr        #
+#    Updated: 2022/05/14 23:24:48 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= BRAINED
+NAME		= moarBrainz
 
 CC			= clang++
 
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS	 	= main.cpp
+SRCS	 	= main.cpp zombieHorde.cpp Zombie.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

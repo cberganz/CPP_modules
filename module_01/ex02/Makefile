@@ -6,11 +6,11 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/03/31 16:51:22 by cberganz         ###   ########.fr        #
+#    Updated: 2022/05/14 23:28:16 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= BRAINED
+NAME		= hiThisIsBrain
 
 CC			= clang++
 

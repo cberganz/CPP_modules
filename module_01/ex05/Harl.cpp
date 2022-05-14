@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 19:20:46 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/07 19:20:49 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 00:09:44 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ void	Harl::complain( std::string level )
 		{std::string("END"), NULL}
 	};
 
-	for (int i = 0 ; funcPtrs[i].name != "END" ; i++)
+	for (int i = 0 ; funcPtrs[i].name != "END" ; i++) {
 		if (funcPtrs[i].name == level || funcPtrs[i].name == "OTHER")
 		{
 			(this->*funcPtrs[i].ptr)();
 			break ;
 		}
+	}
 }

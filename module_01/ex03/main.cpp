@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:37:21 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/31 16:35:13 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/14 23:43:05 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int	main()
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
+	}
+	{
+		HumanB marc("Marc");
+		marc.attack();
 	}
 	return 0;
 }

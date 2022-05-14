@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 16:09:27 by cberganz          #+#    #+#             */
-/*   Updated: 2022/03/31 16:15:04 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/14 23:29:55 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ const std::string&	Weapon::getType() const
 	return (this->_type);
 }
 
-void	Weapon::setType(const std::string type)
+void	Weapon::setType(const std::string &type)
 {
 	this->_type = type;
 }
