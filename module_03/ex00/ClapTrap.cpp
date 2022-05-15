@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 19:41:09 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/08 02:39:46 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 19:26:28 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,19 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &other)
 
 void	ClapTrap::attack(std::string const &target)
 {
+	if (this->_life <= 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " is already dead and cannot attack. RIP." << std::endl;
+		return ;
+	}
 	if (this->_energy == 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " tried to attack but he is out of energy" << std::endl;
+		return ;
+	}
+	if (this->_damage == 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " tried to attack but has no damage points" << std::endl;
 		return ;
 	}
 	this->_energy--;
@@ -68,7 +78,7 @@ void	ClapTrap::attack(std::string const &target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_life == 0)
+	if (this->_life <= 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " is already dead" << std::endl;
 		return ;
@@ -79,10 +89,17 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		this->_life -= amount;
 	std::cout << "ClapTrap " << this->_name << " takes " << amount
 				<< " points of damage !" << std::endl;
+	if (this->_life <= 0)
+		std::cout << this->_name << " just died. RIP." << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->_life <= 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " cannot repair because he is already dead. RIP." << std::endl;
+		return ;
+	}
 	if (this->_energy == 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " tried to repair but he is out of energy" << std::endl;

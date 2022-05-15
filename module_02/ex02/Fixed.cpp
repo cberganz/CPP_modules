@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:23:35 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/15 11:49:59 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:03:32 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ Fixed	&Fixed::min(Fixed &fixed1, Fixed &fixed2)
 	return (fixed1.toFloat() < fixed2.toFloat() ? fixed1 : fixed2);
 }
 
-Fixed	&Fixed::min(Fixed const &fixed1, Fixed const &fixed2) const
+Fixed const	&Fixed::min(Fixed const &fixed1, Fixed const &fixed2)
 {
 	return (fixed1.toFloat() < fixed2.toFloat() ? fixed1 : fixed2);
 }
@@ -160,7 +160,7 @@ Fixed	&Fixed::max(Fixed &fixed1, Fixed &fixed2)
 	return (fixed1.toFloat() > fixed2.toFloat() ? fixed1 : fixed2);
 }
 
-Fixed	&Fixed::max(Fixed const &fixed1, Fixed const &fixed2) const
+Fixed const	&Fixed::max(Fixed const &fixed1, Fixed const &fixed2)
 {
 	return (fixed1.toFloat() > fixed2.toFloat() ? fixed1 : fixed2);
 }

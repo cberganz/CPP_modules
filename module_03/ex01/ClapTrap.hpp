@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 19:37:03 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/08 02:36:17 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 19:28:02 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ public:
 	
 	ClapTrap(void);
 	ClapTrap(std::string name);
+	ClapTrap(std::string name, int life, int energy, int damage);
 	ClapTrap(ClapTrap const &other);
 	~ClapTrap(void);
 
@@ -36,6 +37,7 @@ public:
 	unsigned int	getEnergy() const;
 
 protected:
+	std::string		_type;
 	std::string		_name;
 	unsigned int	_life;
 	int				_energy;

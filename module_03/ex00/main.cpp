@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 21:36:20 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/08 01:40:00 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 18:25:04 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	main(void)
 	std::cout << std::endl;
 	for (int i = 0 ; i < 11 ; i++)
 	{
-		if (clap.getEnergy() > 0)
+		if (clap.getEnergy() > 0 and clap.getDamage() > 0)
 		{
 			clap.attack("trap");
-			trap.takeDamage(clap.getDamage());
+			trap.takeDamage(scav.getDamage());
 		}
 		else
 			clap.attack("trap");
@@ -40,6 +40,8 @@ int	main(void)
 	}
 
 	clap.beRepaired(10);
+	printInfos(clap);
+	std::cout << std::endl;
 
 	return (0);
 }

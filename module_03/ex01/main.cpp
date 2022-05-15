@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 21:36:20 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/08 02:42:17 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 19:01:54 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	std::cout << std::endl;
 	for (int i = 0 ; i < 11 ; i++)
 	{
-		if (scav.getEnergy() > 0)
+		if (scav.getEnergy() > 0 and scav.getDamage() > 0)
 		{
 			scav.attack("trap");
 			trap.takeDamage(scav.getDamage());
