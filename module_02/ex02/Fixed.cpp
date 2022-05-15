@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:23:35 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/06 17:22:18 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 11:49:59 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,25 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
 	this->_fixedPointValue = 0;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Fixed::Fixed(const int n)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_fixedPointValue = n << this->_fractionalBits;
 }
 
 Fixed::Fixed(const float n)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_fixedPointValue = roundf(n * (1 << this->_fractionalBits));
 }
 
@@ -150,22 +145,22 @@ int		Fixed::toInt(void) const
 	return (this->_fixedPointValue >> Fixed::_fractionalBits);
 }
 
-Fixed		&Fixed::min(Fixed &fixed1, Fixed &fixed2)
+Fixed	&Fixed::min(Fixed &fixed1, Fixed &fixed2)
 {
 	return (fixed1.toFloat() < fixed2.toFloat() ? fixed1 : fixed2);
 }
 
-const Fixed	&Fixed::min(Fixed const &fixed1, Fixed const &fixed2)
+Fixed	&Fixed::min(Fixed const &fixed1, Fixed const &fixed2) const
 {
 	return (fixed1.toFloat() < fixed2.toFloat() ? fixed1 : fixed2);
 }
 
-Fixed		&Fixed::max(Fixed &fixed1, Fixed &fixed2)
+Fixed	&Fixed::max(Fixed &fixed1, Fixed &fixed2)
 {
 	return (fixed1.toFloat() > fixed2.toFloat() ? fixed1 : fixed2);
 }
 
-const Fixed	&Fixed::max(Fixed const &fixed1, Fixed const &fixed2)
+Fixed	&Fixed::max(Fixed const &fixed1, Fixed const &fixed2) const
 {
 	return (fixed1.toFloat() > fixed2.toFloat() ? fixed1 : fixed2);
 }

@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:17:11 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/07 19:08:09 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:02:54 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	drawTriangle(Point const a, Point const b, Point const c, Point const point
 		if (i != 0 and i % width == 0)
 			std::cout << "|" << std::endl << "|";
 		if ((i % width) == point.getX().toInt() and (i / height) == point.getY().toInt())
-			std::cout << (bsp(a, b, c, Point(Fixed(i % width), Fixed(i / width)), false) ?
+			std::cout << (bsp(a, b, c, Point(i % width, i / width), false) ?
 				GREEN : RED) << "*" << BOLDMAGENTA;
-		else if (bsp(a, b, c, Point(Fixed(i % width), Fixed(i / width)), true))
+		else if (bsp(a, b, c, Point(i % width, i / width), true))
 			std::cout << "#";
 		else
 			std::cout << " ";
@@ -92,7 +92,7 @@ int main( void ) {
 		std::getline(std::cin, inputX);
 		std::cout << "Y position : ";
 		std::getline(std::cin, inputY);
-		points[i] = Point(Fixed((float)atof(inputX.c_str())), Fixed((float)atof(inputY.c_str())));
+		points[i] = Point((float)atof(inputX.c_str()), (float)atof(inputY.c_str()));
 	}
 
 	drawTriangle(points[0], points[1], points[2], points[3]);

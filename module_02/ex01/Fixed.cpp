@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:23:35 by cberganz          #+#    #+#             */
-/*   Updated: 2022/04/06 16:44:35 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/15 11:29:36 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,8 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 	return (*this);
 }
 
-//std::string &Fixed::operator<<(const Fixed &fixed)
-//{
-//	std::cout << "Left shift operator called" << std::endl;
-//	this->_fixedPointValue <<= n;
-//	return (*this);
-//	return ("TEST");
-//}
 std::ostream	&operator<<(std::ostream &flux, Fixed const &fixed)
 {
-//	std::cout << "Left shift operator called" << std::endl;
     flux << fixed.toFloat();
     return flux;
 }
@@ -77,10 +69,10 @@ void	Fixed::setRawBits(int const newValue)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_fixedPointValue / (1 << Fixed::_fractionalBits));
+	return ((float)this->_fixedPointValue / (1 << this->_fractionalBits));
 }
 
 int		Fixed::toInt(void) const
 {
-	return (this->_fixedPointValue >> Fixed::_fractionalBits);
+	return (this->_fixedPointValue >> this->_fractionalBits);
 }
