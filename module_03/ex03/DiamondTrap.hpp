@@ -21,16 +21,22 @@
 class	DiamondTrap : public ScavTrap, public FragTrap
 {
 	public:
-		DiamondTrap();
+		DiamondTrap(void);
 		DiamondTrap(std::string name);
 		DiamondTrap(DiamondTrap const &other);
-		~DiamondTrap();
+		~DiamondTrap(void);
 
 		DiamondTrap	&operator=(DiamondTrap const &other);
 
 		void		attack(std::string const &target);
 		void        whoAmI(void);
+		std::string	getTrueName(void) const;
+
+	private:
+		std::string	_name;
 
 };
+
+std::ostream &operator<<(std::ostream &outStream, DiamondTrap const &diamond);
 
 #endif

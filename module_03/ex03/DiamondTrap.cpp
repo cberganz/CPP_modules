@@ -12,24 +12,26 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("defaultName_clap_name"), ScavTrap("defaultName"), FragTrap("defaultName")
+DiamondTrap::DiamondTrap(void) : ClapTrap("defaultName_clap_name", 100, 50, 30), ScavTrap("defaultName"), FragTrap("defaultName")
 {
+	this->_name = "defaultName";
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name", 100, 50, 30), ScavTrap(name), FragTrap(name)
 {
+	this->_name = name;
 	std::cout << "DiamondTrap constructor called for " << name << std::endl;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
-	std::cout << "DiamondTrap copy constructor called for " << this->getName() << std::endl;
+	std::cout << "DiamondTrap copy constructor called for " << this->_name << std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void)
 {
-	std::cout << "DiamondTrap destructor called for " << this->getName() << std::endl;
+	std::cout << "DiamondTrap destructor called for " << this->_name << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other)
@@ -43,7 +45,7 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other)
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "DiamondTrap " << this->getName() << " hides behind " << ClapTrap::getName() << std::endl;
+	std::cout << "DiamondTrap " << this->_name << " hides behind " << ClapTrap::getName() << std::endl;
 }
 
 void	DiamondTrap::attack(std::string const &target)
@@ -55,16 +57,30 @@ void	DiamondTrap::attack(std::string const &target)
 	}
 	if (this->getEnergy() == 0)
 	{
-		std::cout << "DiamondTrap " << this->getName() << " tried to attack but he is out of energy" << std::endl;
+		std::cout << "DiamondTrap " << this->_name << " tried to attack but he is out of energy" << std::endl;
 		return ;
 	}
 	if (this->getDamage() == 0)
 	{
-		std::cout << "DiamondTrap " << this->getName() << " tried to attack but has no damage point" << std::endl;
+		std::cout << "DiamondTrap " << this->_name << " tried to attack but has no damage point" << std::endl;
 		return ;
 	}
 	this->_energy--;
-	std::cout << "DiamondTrap " << this->getName() << " attacks " << target
+	std::cout << "DiamondTrap " << this->_name << " attacks " << target
 				<< ", causing " << this->getDamage()
 				<< " points of damage !" << std::endl;
+}
+
+std::string		DiamondTrap::getTrueName(void) const
+{
+	return (this->_name);
+}
+
+std::ostream &operator<<(std::ostream &outStream, DiamondTrap const &diamond)
+{
+	std::cout << "Name: " << diamond.getTrueName() << " | "
+				<< "Life points: " << diamond.getLife() << " | "
+				<< "Energy points: " << diamond.getEnergy() << " | "
+				<< "Damage: " << diamond.getDamage();
+	return outStream;
 }

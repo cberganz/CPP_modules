@@ -31,14 +31,6 @@ void	printInfos(FragTrap &fragTrap)
 	std::cout << "Damage: " << fragTrap.getDamage() << std::endl;
 }
 
-void	printInfos(DiamondTrap &diamondTrap)
-{
-	std::cout << "Name: " << diamondTrap.getName() << " | ";
-	std::cout << "Life points: " << diamondTrap.getLife() << " | ";
-	std::cout << "Energy points: " << diamondTrap.getEnergy() << " | ";
-	std::cout << "Damage: " << diamondTrap.getDamage() << std::endl;
-}
-
 int	main(void)
 {
 	FragTrap	frag("frag");
@@ -48,28 +40,27 @@ int	main(void)
 	diamond.whoAmI();
 
 	std::cout << std::endl;
-	while (diamond.getLife() > 0)
+	while (frag.getLife() > 0)
 	{
-		if (frag.getEnergy() > 0)
+		if (diamond.getEnergy() > 0)
 		{
-			frag.attack("diamond");
-			diamond.takeDamage(frag.getDamage());
+			diamond.attack("frag");
+			frag.takeDamage(diamond.getDamage());
 		}
 		else
-			frag.attack("diamond");
-		diamond.beRepaired(10);
+			diamond.attack("frag");
+		frag.beRepaired(10);
+		std::cout << diamond << std::endl;
 		printInfos(frag);
-		printInfos(diamond);
 		std::cout << std::endl;
 	}
 
+	diamond.beRepaired(10);
+	std::cout << diamond << std::endl;
 	frag.beRepaired(10);
 	printInfos(frag);
-	diamond.beRepaired(10);
-	printInfos(diamond);
 	std::cout << std::endl;
 	
-	frag.highFivesGuys();
 	std::cout << std::endl;
 
 	return (0);
