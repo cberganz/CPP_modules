@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 
-class	ScavTrap : public ClapTrap
+class	ScavTrap : public virtual ClapTrap
 {
 	public:
 		ScavTrap();

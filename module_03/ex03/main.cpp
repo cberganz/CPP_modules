@@ -13,6 +13,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 void	printInfos(ScavTrap &scavTrap)
 {
@@ -24,40 +25,48 @@ void	printInfos(ScavTrap &scavTrap)
 
 void	printInfos(FragTrap &fragTrap)
 {
-	std::cout << "Name: " <<fragTrap.getName() << " | ";
+	std::cout << "Name: " << fragTrap.getName() << " | ";
 	std::cout << "Life points: " << fragTrap.getLife() << " | ";
 	std::cout << "Energy points: " << fragTrap.getEnergy() << " | ";
 	std::cout << "Damage: " << fragTrap.getDamage() << std::endl;
 }
 
+void	printInfos(DiamondTrap &diamondTrap)
+{
+	std::cout << "Name: " << diamondTrap.getName() << " | ";
+	std::cout << "Life points: " << diamondTrap.getLife() << " | ";
+	std::cout << "Energy points: " << diamondTrap.getEnergy() << " | ";
+	std::cout << "Damage: " << diamondTrap.getDamage() << std::endl;
+}
+
 int	main(void)
 {
 	FragTrap	frag("frag");
-	ScavTrap	scav("scav");
+	DiamondTrap	diamond("diamond");
 
 	std::cout << std::endl;	
-	scav.guardGate();
+	diamond.whoAmI();
 
 	std::cout << std::endl;
-	while (scav.getLife() > 0)
+	while (diamond.getLife() > 0)
 	{
 		if (frag.getEnergy() > 0)
 		{
-			frag.attack("scav");
-			scav.takeDamage(frag.getDamage());
+			frag.attack("diamond");
+			diamond.takeDamage(frag.getDamage());
 		}
 		else
-			frag.attack("scav");
-		scav.beRepaired(10);
+			frag.attack("diamond");
+		diamond.beRepaired(10);
 		printInfos(frag);
-		printInfos(scav);
+		printInfos(diamond);
 		std::cout << std::endl;
 	}
 
 	frag.beRepaired(10);
 	printInfos(frag);
-	scav.beRepaired(10);
-	printInfos(scav);
+	diamond.beRepaired(10);
+	printInfos(diamond);
 	std::cout << std::endl;
 	
 	frag.highFivesGuys();

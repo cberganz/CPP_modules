@@ -17,7 +17,7 @@
 # include <iostream>
 # include <string>
 
-class	FragTrap : public ClapTrap
+class	FragTrap : public virtual ClapTrap
 {
 	public:
 		FragTrap();
