@@ -19,7 +19,7 @@ FragTrap::FragTrap(void) : ClapTrap("defaultName", 100, 100, 30)
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
 {
-	std::cout << "FragTrap constructor called for " << name << std::endl;
+	std::cout << "FragTrap constructor called for " << this->getName() << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other)
@@ -30,6 +30,18 @@ FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other)
 FragTrap::~FragTrap(void)
 {
 	std::cout << "FragTrap destructor called for " << this->getName() << std::endl;
+}
+
+FragTrap	&FragTrap::operator=(const FragTrap &other)
+{
+	if (this != &other)
+	{
+		this->_name = other.getName();
+		this->_energy = other.getEnergy();
+		this->_life = other.getLife();
+		this->_damage = other.getDamage();
+	}
+	return (*this);
 }
 
 void	FragTrap::highFivesGuys(void) const
@@ -58,4 +70,13 @@ void	FragTrap::attack(std::string const &target)
 	std::cout << "FragTrap " << this->getName() << " attacks " << target
 				<< ", causing " << this->getDamage()
 				<< " points of damage !" << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &outStream, FragTrap const &frag)
+{
+	std::cout << "Name: " << frag.getName() << " | "
+				<< "Life points: " << frag.getLife() << " | "
+				<< "Energy points: " << frag.getEnergy() << " | "
+				<< "Damage: " << frag.getDamage();
+	return outStream;
 }

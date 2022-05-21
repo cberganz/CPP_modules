@@ -14,22 +14,6 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-void	printInfos(ScavTrap &scavTrap)
-{
-	std::cout << "Name: " << scavTrap.getName() << " | ";
-	std::cout << "Life points: " << scavTrap.getLife() << " | ";
-	std::cout << "Energy points: " << scavTrap.getEnergy() << " | ";
-	std::cout << "Damage: " << scavTrap.getDamage() << std::endl;
-}
-
-void	printInfos(FragTrap &fragTrap)
-{
-	std::cout << "Name: " <<fragTrap.getName() << " | ";
-	std::cout << "Life points: " << fragTrap.getLife() << " | ";
-	std::cout << "Energy points: " << fragTrap.getEnergy() << " | ";
-	std::cout << "Damage: " << fragTrap.getDamage() << std::endl;
-}
-
 int	main(void)
 {
 	FragTrap	frag("frag");
@@ -49,15 +33,15 @@ int	main(void)
 		else
 			frag.attack("scav");
 		scav.beRepaired(10);
-		printInfos(frag);
-		printInfos(scav);
+		std::cout << frag << std::endl;
+		std::cout << scav << std::endl;
 		std::cout << std::endl;
 	}
 
 	frag.beRepaired(10);
-	printInfos(frag);
+	std::cout << frag << std::endl;
 	scav.beRepaired(10);
-	printInfos(scav);
+	std::cout << scav << std::endl;
 	std::cout << std::endl;
 	
 	frag.highFivesGuys();

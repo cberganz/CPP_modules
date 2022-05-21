@@ -25,11 +25,13 @@ class	ScavTrap : public virtual ClapTrap
 		ScavTrap(ScavTrap const &other);
 		~ScavTrap();
 
-		using		ClapTrap::operator=;
+		ScavTrap &operator=(ScavTrap const &other);
 
 		void		attack(std::string const &target);
 		void		guardGate() const;
 
 };
+
+std::ostream &operator<<(std::ostream &outStream, ScavTrap const &scav);
 
 #endif

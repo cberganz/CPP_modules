@@ -32,6 +32,18 @@ ScavTrap::~ScavTrap(void)
 	std::cout << "ScavTrap destructor called for " << this->getName() << std::endl;
 }
 
+ScavTrap	&ScavTrap::operator=(const ScavTrap &other)
+{
+	if (this != &other)
+	{
+		this->_name = other.getName();
+		this->_energy = other.getEnergy();
+		this->_life = other.getLife();
+		this->_damage = other.getDamage();
+	}
+	return (*this);
+}
+
 void	ScavTrap::guardGate(void) const
 {
 	std::cout << "ScavTrap " << this->getName() << " is guarding the gate" << std::endl;
@@ -58,4 +70,13 @@ void	ScavTrap::attack(std::string const &target)
 	std::cout << "ScavTrap " << this->getName() << " attacks " << target
 				<< ", causing " << this->getDamage()
 				<< " points of damage !" << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &outStream, ScavTrap const &scav)
+{
+	std::cout << "Name: " << scav.getName() << " | "
+				<< "Life points: " << scav.getLife() << " | "
+				<< "Energy points: " << scav.getEnergy() << " | "
+				<< "Damage: " << scav.getDamage();
+	return outStream;
 }

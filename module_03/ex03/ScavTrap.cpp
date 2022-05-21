@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(void) : ClapTrap("defaultName", 100, 50, 20)
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	std::cout << "ScavTrap constructor called for " << name << std::endl;
+	std::cout << "ScavTrap constructor called for " << this->getName() << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
@@ -30,6 +30,18 @@ ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
 ScavTrap::~ScavTrap(void)
 {
 	std::cout << "ScavTrap destructor called for " << this->getName() << std::endl;
+}
+
+ScavTrap	&ScavTrap::operator=(const ScavTrap &other)
+{
+	if (this != &other)
+	{
+		this->_name = other.getName();
+		this->_energy = other.getEnergy();
+		this->_life = other.getLife();
+		this->_damage = other.getDamage();
+	}
+	return (*this);
 }
 
 void	ScavTrap::guardGate(void) const
@@ -58,4 +70,13 @@ void	ScavTrap::attack(std::string const &target)
 	std::cout << "ScavTrap " << this->getName() << " attacks " << target
 				<< ", causing " << this->getDamage()
 				<< " points of damage !" << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &outStream, ScavTrap const &scav)
+{
+	std::cout << "Name: " << scav.getName() << " | "
+				<< "Life points: " << scav.getLife() << " | "
+				<< "Energy points: " << scav.getEnergy() << " | "
+				<< "Damage: " << scav.getDamage();
+	return outStream;
 }

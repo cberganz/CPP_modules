@@ -12,14 +12,6 @@
 
 #include "ClapTrap.hpp"
 
-void	printInfos(ClapTrap &clap)
-{
-	std::cout << "Name: " << clap.getName() << " | ";
-	std::cout << "Life points: " << clap.getLife() << " | ";
-	std::cout << "Energy points: " << clap.getEnergy() << " | ";
-	std::cout << "Damage: " << clap.getDamage() << std::endl;
-}
-
 int	main(void)
 {
 	ClapTrap	clap("clap"), trap("trap");
@@ -30,17 +22,17 @@ int	main(void)
 		if (clap.getEnergy() > 0 and clap.getDamage() > 0)
 		{
 			clap.attack("trap");
-			trap.takeDamage(scav.getDamage());
+			trap.takeDamage(clap.getDamage());
 		}
 		else
 			clap.attack("trap");
-		printInfos(clap);
-		printInfos(trap);
+		std::cout << clap << std::endl;
+		std::cout << trap << std::endl;
 		std::cout << std::endl;
 	}
 
 	clap.beRepaired(10);
-	printInfos(clap);
+	std::cout << clap << std::endl;
 	std::cout << std::endl;
 
 	return (0);

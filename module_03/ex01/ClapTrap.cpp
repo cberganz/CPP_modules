@@ -94,7 +94,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_life <= 0)
 	{
-		std::cout this->_name << " cannot repair because he is already dead. RIP." << std::endl;
+		std::cout << this->_name << " cannot repair because he is already dead. RIP." << std::endl;
 		return ;
 	}
 	if (this->_energy == 0)
@@ -129,4 +129,13 @@ unsigned int	ClapTrap::getLife(void) const
 unsigned int	ClapTrap::getEnergy(void) const
 {
 	return (this->_energy);
+}
+
+std::ostream &operator<<(std::ostream &outStream, ClapTrap const &clap)
+{
+	std::cout << "Name: " << clap.getName() << " | "
+				<< "Life points: " << clap.getLife() << " | "
+				<< "Energy points: " << clap.getEnergy() << " | "
+				<< "Damage: " << clap.getDamage();
+	return outStream;
 }

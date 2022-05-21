@@ -15,22 +15,6 @@
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
-void	printInfos(ScavTrap &scavTrap)
-{
-	std::cout << "Name: " << scavTrap.getName() << " | ";
-	std::cout << "Life points: " << scavTrap.getLife() << " | ";
-	std::cout << "Energy points: " << scavTrap.getEnergy() << " | ";
-	std::cout << "Damage: " << scavTrap.getDamage() << std::endl;
-}
-
-void	printInfos(FragTrap &fragTrap)
-{
-	std::cout << "Name: " << fragTrap.getName() << " | ";
-	std::cout << "Life points: " << fragTrap.getLife() << " | ";
-	std::cout << "Energy points: " << fragTrap.getEnergy() << " | ";
-	std::cout << "Damage: " << fragTrap.getDamage() << std::endl;
-}
-
 int	main(void)
 {
 	FragTrap	frag("frag");
@@ -51,15 +35,14 @@ int	main(void)
 			diamond.attack("frag");
 		frag.beRepaired(10);
 		std::cout << diamond << std::endl;
-		printInfos(frag);
+		std::cout << frag << std::endl;
 		std::cout << std::endl;
 	}
 
 	diamond.beRepaired(10);
 	std::cout << diamond << std::endl;
 	frag.beRepaired(10);
-	printInfos(frag);
-	std::cout << std::endl;
+	std::cout << frag << std::endl;
 	
 	std::cout << std::endl;
 

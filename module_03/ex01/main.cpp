@@ -13,14 +13,6 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-void	printInfos(ScavTrap &scavTrap)
-{
-	std::cout << "Name: " << scavTrap.getName() << " | ";
-	std::cout << "Life points: " << scavTrap.getLife() << " | ";
-	std::cout << "Energy points: " << scavTrap.getEnergy() << " | ";
-	std::cout << "Damage: " << scavTrap.getDamage() << std::endl;
-}
-
 int	main(void)
 {
 	ScavTrap	scav("scav"), trap("trap");
@@ -35,15 +27,15 @@ int	main(void)
 		}
 		else
 			scav.attack("trap");
-		printInfos(scav);
-		printInfos(trap);
+		std::cout << scav << std::endl;
+		std::cout << trap << std::endl;
 		std::cout << std::endl;
 	}
 
 	trap.beRepaired(10);
-	printInfos(trap);
+	std::cout << trap << std::endl;
 	scav.beRepaired(10);
-	printInfos(scav);
+	std::cout << scav << std::endl;
 	std::cout << std::endl;
 
 	return (0);

@@ -14,7 +14,7 @@ NAME		= DiamondTrap
 
 CC			= clang++
 
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 SRCS	 	= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 

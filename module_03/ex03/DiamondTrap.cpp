@@ -36,10 +36,13 @@ DiamondTrap::~DiamondTrap(void)
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other)
 {
-	this->_name = other.getName();
-	this->_life = other.getLife();
-	this->_energy = other.getEnergy();
-	this->_damage = other.getDamage();
+	if (this != &other)
+	{
+		this->_name = other.getName();
+		this->_life = other.getLife();
+		this->_energy = other.getEnergy();
+		this->_damage = other.getDamage();
+	}
 	return (*this);
 }
 
@@ -50,25 +53,7 @@ void	DiamondTrap::whoAmI(void)
 
 void	DiamondTrap::attack(std::string const &target)
 {
-	if (this->_life <= 0)
-	{
-		std::cout << "DiamondTrap " << this->_name << " is already dead and cannot attack. RIP." << std::endl;
-		return ;
-	}
-	if (this->getEnergy() == 0)
-	{
-		std::cout << "DiamondTrap " << this->_name << " tried to attack but he is out of energy" << std::endl;
-		return ;
-	}
-	if (this->getDamage() == 0)
-	{
-		std::cout << "DiamondTrap " << this->_name << " tried to attack but has no damage point" << std::endl;
-		return ;
-	}
-	this->_energy--;
-	std::cout << "DiamondTrap " << this->_name << " attacks " << target
-				<< ", causing " << this->getDamage()
-				<< " points of damage !" << std::endl;
+	ScavTrap::attack(target);
 }
 
 std::string		DiamondTrap::getTrueName(void) const
