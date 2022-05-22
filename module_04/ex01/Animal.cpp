@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 17:38:34 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 01:56:24 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/22 01:28:23 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ Animal::Animal( std::string type ) : _type(type)
 
 Animal::Animal( Animal const &other )
 {
-	*this = other;
+    if (this != &other)
+	    *this = other;
     std::cout << "Animal copy constructor called for a " << this->_type << " !" << std::endl;
 }
 
@@ -48,4 +49,10 @@ std::string Animal::getType( void ) const
 void    Animal::makeSound( void ) const
 {
 	std::cout << "No sound..." << std::endl;
+}
+
+void    Animal::getIdea( int index )
+{
+	(void)index;
+	std::cout << "This animal has no idea..." << std::endl;
 }

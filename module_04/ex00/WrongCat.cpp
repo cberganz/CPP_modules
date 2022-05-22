@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 17:38:49 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 00:36:24 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/22 01:57:18 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ WrongCat::WrongCat( void ) : WrongAnimal("Cat")
 
 WrongCat::WrongCat( WrongCat const &instance ) : WrongAnimal(instance)
 {
+	*this = instance;
 	std::cout << "WrongCat copy constructor called !" << std::endl;
 }
 
