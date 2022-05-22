@@ -6,17 +6,17 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 17:38:51 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 01:59:47 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/22 13:08:17 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 
 	public:
 	    Cat( void );

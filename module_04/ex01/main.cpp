@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 17:38:59 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 11:21:38 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/22 22:51:56 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int main( void )
 	Dog	dogCpy( dog );
 	dog.getIdea( 10 );
 	dogCpy.getIdea( 10 );
-	std::cout << "Dog pointer is " << &dog << " while dogCpy pointer is " << &dogCpy << std::endl << std::endl;
+	std::cout << "Dog's Brain pointer is " << dog.getBrain() << " while dogCpy pointer is " << dogCpy.getBrain() << std::endl << std::endl;
 	usleep(500000);
 	Cat cat;
 	Cat catCpy( cat );
 	cat.getIdea( 10 );
 	catCpy.getIdea( 10 );
-	std::cout << "Cat pointer is " << &cat << " while catCpy pointer is " << &catCpy << std::endl;
+	std::cout << "Cat's Brain pointer is " << cat.getBrain() << " while catCpy pointer is " << catCpy.getBrain() << std::endl;
 
 	std::cout << std::endl;
     return ( 0 );

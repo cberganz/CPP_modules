@@ -6,20 +6,20 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 17:38:49 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 02:02:21 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/22 13:08:01 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Cat.hpp"
 
-Cat::Cat( void ) : Animal( "Cat" )
+Cat::Cat( void ) : AAnimal( "Cat" )
 {
 	this->_brain = new Brain;
     std::cout << "Cat default constructor called !" << std::endl;
 }
 
-Cat::Cat( Cat const &instance ) : Animal( instance )
+Cat::Cat( Cat const &instance ) : AAnimal( instance )
 {
 	*this = instance;
 	std::cout << "Cat copy constructor called !" << std::endl;

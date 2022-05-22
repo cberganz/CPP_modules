@@ -6,7 +6,7 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/05/22 13:09:21 by cberganz         ###   ########.fr        #
+#    Updated: 2022/05/22 14:55:12 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC			= clang++
 
 CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS	 	= main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS	 	= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

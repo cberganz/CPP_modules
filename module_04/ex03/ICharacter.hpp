@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 17:38:46 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 11:28:02 by cberganz         ###   ########.fr       */
+/*   Created: 2022/05/22 13:14:31 by cberganz          #+#    #+#             */
+/*   Updated: 2022/05/22 20:36:12 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
 # include <iostream>
+# include "AMateria.hpp"
 
-class Animal {
+class AMateria;
 
-    public:
-        Animal( void );
-        Animal( std::string typeName );
-	    Animal( Animal const& instance );
-	    virtual ~Animal( void );
-	    Animal	        &operator=( Animal const &instance );
-	    virtual void    makeSound( void ) const = 0;
-        virtual void    getIdea( int index );
-	    std::string     getType( void ) const;
+class ICharacter {
 
-    protected:
-        std::string _type;
+	public:
+		virtual ~ICharacter() {}
+		virtual std::string const &getName( void ) const = 0;
+		virtual void equip( AMateria* materia ) = 0;
+		virtual void unequip( int idex ) = 0;
+		virtual void use( int idex, ICharacter &user ) = 0;
 
 };
 

@@ -6,20 +6,20 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 17:38:54 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 02:02:56 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/22 13:08:34 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Dog.hpp"
 
-Dog::Dog( void ) : Animal( "Dog" )
+Dog::Dog( void ) : AAnimal( "Dog" )
 {
 	this->_brain = new Brain;
     std::cout << "Dog default constructor called !" << std::endl;
 }
 
-Dog::Dog( Dog const &instance ) : Animal( instance )
+Dog::Dog( Dog const &instance ) : AAnimal( instance )
 {
 	*this = instance;
 	std::cout << "Dog copy constructor called !" << std::endl;

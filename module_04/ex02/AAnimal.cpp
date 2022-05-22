@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 17:38:34 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 11:00:28 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/22 13:09:36 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal( void ) : _type( "default" )
+AAnimal::AAnimal( void ) : _type( "default" )
 {
-    std::cout << "Animal default constructor called !" << std::endl;
+    std::cout << "AAnimal default constructor called !" << std::endl;
 }
 
-Animal::Animal( std::string type ) : _type(type)
+AAnimal::AAnimal( std::string type ) : _type(type)
 {
-    std::cout << "Animal constructor called for a " << this->_type << " !" << std::endl;
+    std::cout << "AAnimal constructor called for a " << this->_type << " !" << std::endl;
 }
 
-Animal::Animal( Animal const &other )
+AAnimal::AAnimal( AAnimal const &other )
 {
 	*this = other;
-    std::cout << "Animal copy constructor called for a " << this->_type << " !" << std::endl;
+    std::cout << "AAnimal copy constructor called for a " << this->_type << " !" << std::endl;
 }
 
-Animal::~Animal( void )
+AAnimal::~AAnimal( void )
 {
-    std::cout << "Animal destructor called for a " << this->_type << " !" << std::endl;
+    std::cout << "AAnimal destructor called for a " << this->_type << " !" << std::endl;
 }
 
-Animal  &Animal::operator=( Animal const &instance )
+AAnimal  &AAnimal::operator=( AAnimal const &instance )
 {
 	if (this != &instance)
 		this->_type = instance.getType();
 	return ( *this );
 }
 
-std::string Animal::getType( void ) const
+std::string AAnimal::getType( void ) const
 {
 	return ( this->_type );
 }
 
-void    Animal::makeSound( void ) const
+void    AAnimal::makeSound( void ) const
 {
 	std::cout << "No sound..." << std::endl;
 }
 
-void    Animal::getIdea( int index )
+void    AAnimal::getIdea( int index )
 {
 	(void)index;
 	std::cout << "This animal has no idea..." << std::endl;
