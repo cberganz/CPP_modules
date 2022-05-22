@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 17:38:59 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 11:21:38 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/22 11:31:27 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ int main( void )
 	cat.getIdea( 10 );
 	catCpy.getIdea( 10 );
 	std::cout << "Cat pointer is " << &cat << " while catCpy pointer is " << &catCpy << std::endl;
+
+	//std::cout << std::endl << "TESTING CLASS ABSTRACTION\n" << std::endl;
+    //const Animal* meta = new Animal();
 
 	std::cout << std::endl;
     return ( 0 );
