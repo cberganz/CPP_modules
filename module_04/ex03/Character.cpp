@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 13:14:07 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 14:56:30 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/23 08:40:24 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void Character::_fillInventory( AMateria *materia, int index )
 	{
 		if( this->_inventory[j] == materia )
 		{
-			std::cout << this->_name << " does not need more " << materia->getType() << std::endl;
+			std::cout << this->_name << " already has this " << materia->getType() << std::endl;
 			return ;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 13:14:47 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/22 22:49:18 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/23 08:41:02 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "IMateriaSource.hpp"
 
-# define MAX_LEARN 4
+# define MAX_LEARN 2
 
 class MateriaSource : public IMateriaSource {
 
