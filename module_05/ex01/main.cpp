@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 14:23:27 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/24 02:04:14 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/05/25 00:11:45 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
 	Form formForStupidGuy1;
 	Form *formForStupidGuy2 = new Form( "formForStupidGuy2", 75, 150 );
 	Form formForStupidGuy3( "formForStupidGuy3", 1, 150 );
-	std::cout << formForStupidGuy1 << *formForStupidGuy2 << formForStupidGuy3 << std::endl;
+	std::cout << formForStupidGuy1 << *formForStupidGuy2 << formForStupidGuy3;
 
 	std::cout << std::endl << " -> DEEP COPY TESTS FOR BUREAUCRATS :" << std::endl;
 	Bureaucrat *stupidGuy2Clone = new Bureaucrat( *stupidGuy2 );
