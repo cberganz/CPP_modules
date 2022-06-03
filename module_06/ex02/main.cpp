@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 06:46:27 by cberganz          #+#    #+#             */
-/*   Updated: 2022/06/04 01:09:08 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/06/04 01:34:17 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,22 @@ Base *generate(void)
 	switch (rand() % 3)
 	{
 		case 0:
+			std::cout << "A generated !" << std::endl;
 			return new A;
 
 		case 1:
+			std::cout << "B generated !" << std::endl;
 			return new B;
 
 		default:
+			std::cout << "C generated !" << std::endl;
 			return new C;
 	}	
 }
 
 void identify(Base* p)
 {
+	std::cout << "From pointer: ";
 	if (dynamic_cast<A*>(p) != NULL)
 		std::cout << "It's a class A !\n";
 	else if (dynamic_cast<B*>(p) != NULL)
@@ -48,6 +52,7 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
+	std::cout << "From ref: ";
 	try
 	{
 		(void)dynamic_cast<A&>(p);
