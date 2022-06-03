@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 06:46:27 by cberganz          #+#    #+#             */
-/*   Updated: 2022/06/03 07:11:29 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/06/04 01:09:08 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@
 
 Base *generate(void)
 {
-	Base *ret = NULL;
 	srand(time(0));
-	if (rand() % 3 == 0)
-		return new A;
-	else if (rand() % 3 == 1)
-		return new B;
-	else if (rand() % 3 == 2)
-		return new C;
-	return (ret);	
+	switch (rand() % 3)
+	{
+		case 0:
+			return new A;
+
+		case 1:
+			return new B;
+
+		default:
+			return new C;
+	}	
 }
 
 void identify(Base* p)
@@ -38,9 +41,9 @@ void identify(Base* p)
 	else if (dynamic_cast<B*>(p) != NULL)
 		std::cout << "It's a class B !\n";
 	else if (dynamic_cast<C*>(p) != NULL)
-		std::cout << "It's a class C!\n";
+		std::cout << "It's a class C !\n";
 	else
-		std::cout << "Type not recognized !\n";
+		std::cout << "Type not recognized !" << std::endl;
 }
 
 void identify(Base& p)
@@ -48,14 +51,14 @@ void identify(Base& p)
 	try
 	{
 		(void)dynamic_cast<A&>(p);
-		std::cout << "it's a class A !\n";
+		std::cout << "It's a class A !\n";
 	}
 	catch(...)
 	{
 		try
 		{
 			(void)dynamic_cast<B&>(p);
-			std::cout << "it's a class B !\n";
+			std::cout << "It's a class B !\n";
 		}
 		catch(...)
 		{
@@ -64,9 +67,9 @@ void identify(Base& p)
 				(void)dynamic_cast<C&>(p);
 				std::cout << "It's a class C !\n";
 			}
-			catch(const std::exception &e)
+			catch(...)
 			{
-				std::cerr << e.what() << '\n';
+				std::cerr << "Type not recognized !" << std::endl;
 			}
 		}
 		

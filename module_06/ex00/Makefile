@@ -6,7 +6,7 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/06/02 11:49:55 by cberganz         ###   ########.fr        #
+#    Updated: 2022/06/03 23:08:57 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC			= clang++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g
 
 SRCS	 	= 	main.cpp	\
-				Scalar.cpp	
+				Convert.cpp	
 
 OBJS		= $(SRCS:.cpp=.o)
 
