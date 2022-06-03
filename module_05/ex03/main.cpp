@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charles <charles@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 14:23:27 by cberganz          #+#    #+#             */
-/*   Updated: 2022/05/26 03:43:42 by charles          ###   ########.fr       */
+/*   Updated: 2022/06/02 22:25:55 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
+#include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -402,9 +403,12 @@ int main(void)
 
 	std::cout << std::endl << GRN << " -> TESTS ON INTERN :" << RESET << std::endl;
 	Intern intern1;
+	Form *form1;
+	Form *form2;
 	try
 	{
-		intern1.makeForm( "Robotomy request", "some stupid guy" );
+		form1 = intern1.makeForm( "Robotomy request", "some stupid guy" );
+		delete form1;
 	}
 	catch(const std::exception& e)
 	{
@@ -412,7 +416,8 @@ int main(void)
 	}
 	try
 	{
-		intern1.makeForm( "Kill the bureaucracy", "some stupid guy" );
+		form2 = intern1.makeForm( "Kill the bureaucracy", "some stupid guy" );
+		delete form2;
 	}
 	catch(const std::exception& e)
 	{

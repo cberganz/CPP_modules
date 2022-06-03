@@ -5,21 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 15:37:04 by charles           #+#    #+#             */
-/*   Updated: 2022/06/03 03:01:25 by cberganz         ###   ########.fr       */
+/*   Created: 2022/06/03 06:27:30 by cberganz          #+#    #+#             */
+/*   Updated: 2022/06/03 06:40:56 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Scalar.hpp"
+#include <iomanip>
+#include <iostream>
+#include <stdint.h>
 
-int main(int ac, char *av[])
+struct Data
 {
-	if (ac != 2)
-	{
-		std::cerr << "USAGE: ./convert <char, int, float or double>" << std::endl;
-		return (1);
-	}
-	Scalar scalar(av[1]);
+	int i;
+	std::string s;
+};
 
-	return (0);
+uintptr_t serialize(Data* ptr)
+{
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
+
+Data* deserialize(uintptr_t raw)
+{
+	return (reinterpret_cast<Data*>(raw));
+}
+
+int main()
+{
+    Data *data = new Data;
+    std::cout << "Data ptr : " << data << std::endl;
+    uintptr_t ptr = serialize(data);
+    std::cout << "Casted uintptr_t : " << ptr << std::endl;
+    std::cout << "Recasted to Data* : " << deserialize(ptr) << std::endl;
+
+    delete data;
+
+    return (0);
 }
