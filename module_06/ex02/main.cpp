@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 06:46:27 by cberganz          #+#    #+#             */
-/*   Updated: 2022/06/04 01:34:17 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/06/05 11:11:01 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,21 @@ void identify(Base& p)
 	std::cout << "From ref: ";
 	try
 	{
-		(void)dynamic_cast<A&>(p);
+		static_cast<void>(dynamic_cast<A&>(p));
 		std::cout << "It's a class A !\n";
 	}
 	catch(...)
 	{
 		try
 		{
-			(void)dynamic_cast<B&>(p);
+			static_cast<void>(dynamic_cast<B&>(p));
 			std::cout << "It's a class B !\n";
 		}
 		catch(...)
 		{
 			try
 			{
-				(void)dynamic_cast<C&>(p);
+				static_cast<void>(dynamic_cast<C&>(p));
 				std::cout << "It's a class C !\n";
 			}
 			catch(...)

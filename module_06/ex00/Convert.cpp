@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:37:13 by cberganz          #+#    #+#             */
-/*   Updated: 2022/06/03 23:45:18 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/06/05 11:08:22 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,10 @@ void	Convert::handleInt()
 void	Convert::handleFloat()
 {
 	this->m_asFloat = strtof(this->m_value.c_str(), NULL);
-	if (this->m_asFloat == std::numeric_limits<double>::infinity() or this->m_asFloat != this->m_asFloat)
+	if (this->m_asFloat == std::numeric_limits<double>::infinity() or this->m_asFloat == -std::numeric_limits<double>::infinity() or this->m_asFloat != this->m_asFloat)
 		throw Convert::ImpossibleException();
 	this->m_asInt = static_cast<int>(this->m_asFloat);
-	if (this->m_asFloat > (float)std::numeric_limits<int>::max() or this->m_asFloat < (float)std::numeric_limits<int>::min())
+	if (this->m_asFloat > static_cast<float>(std::numeric_limits<int>::max()) or this->m_asFloat < static_cast<float>(std::numeric_limits<int>::min()))
 		this->m_invalidIntFlag = true;
 	this->m_asDouble = static_cast<double>(this->m_asFloat);
 	if (this->m_asFloat > 127 or this->m_asFloat < -128)
@@ -112,13 +112,13 @@ void	Convert::handleFloat()
 void	Convert::handleDouble()
 {
 	this->m_asDouble = strtod(this->m_value.c_str(), NULL);
-	if (this->m_asDouble == std::numeric_limits<double>::infinity() or this->m_asDouble != this->m_asDouble)
+	if (this->m_asDouble == std::numeric_limits<double>::infinity() or this->m_asDouble == -std::numeric_limits<double>::infinity() or this->m_asDouble != this->m_asDouble)
 		throw Convert::ImpossibleException();
 	this->m_asInt = static_cast<int>(this->m_asDouble);
-	if (this->m_asDouble > (double)std::numeric_limits<int>::max() or (int)this->m_asDouble < (double)std::numeric_limits<int>::min())
+	if (this->m_asDouble > static_cast<double>(std::numeric_limits<int>::max()) or this->m_asDouble < static_cast<double>(std::numeric_limits<int>::min()))
 		this->m_invalidIntFlag = true;
 	this->m_asFloat = static_cast<float>(this->m_asDouble);
-	if (this->m_asDouble > (double)std::numeric_limits<float>::max() or this->m_asDouble < (double)std::numeric_limits<float>::min())
+	if (this->m_asFloat == std::numeric_limits<float>::infinity() or this->m_asFloat == -std::numeric_limits<float>::infinity())
 		this->m_invalidFloatFlag = true;
 	if (this->m_asDouble > 127 or this->m_asDouble < -128)
 		this->m_invalidCharFlag = true;
