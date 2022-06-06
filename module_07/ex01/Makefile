@@ -6,11 +6,13 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/06/06 00:52:54 by cberganz         ###   ########.fr        #
+#    Updated: 2022/06/06 23:25:09 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= introduction
+HEADER		= iter.hpp
+
+NAME		= iter
 
 CC			= clang++
 
@@ -25,7 +27,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -I. -o $@ $^
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -6,25 +6,28 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 00:23:37 by cberganz          #+#    #+#             */
-/*   Updated: 2022/06/06 00:52:10 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/06/06 23:22:18 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "templates.hpp"
 
-int	main()
+template <typename T>
+void tests(T a, T b)
 {
-	int a = 2;
-	int b = 3;
 	::swap( a, b );
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+}
+
+int	main()
+{
+	int a = 1;
+	int b = 2;
+	tests<int>(a, b);
 	std::string c = "chaine1";
 	std::string d = "chaine2";
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	tests<std::string>(c, d);
 }

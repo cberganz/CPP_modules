@@ -6,26 +6,28 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/06/06 00:52:54 by cberganz         ###   ########.fr        #
+#    Updated: 2022/06/06 23:08:19 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= introduction
+HEADER		= Array.hpp
+
+NAME		= Array
 
 CC			= clang++
 
 CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS	 	= 	main.cpp	
+SRCS	 	= main.cpp	
 
 OBJS		= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -I. -o $@ $^
+	$(CC) $(CFLAGS) -I. -o $(NAME) $(OBJS)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER) 
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
