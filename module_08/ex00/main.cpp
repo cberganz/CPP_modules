@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/06 01:07:47 by cberganz          #+#    #+#             */
-/*   Updated: 2022/06/08 12:09:40 by cberganz         ###   ########.fr       */
+/*   Created: 2022/06/07 00:36:07 by cberganz          #+#    #+#             */
+/*   Updated: 2022/06/07 00:49:08 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#include "easyFind.hpp"
+#include <vector>
 
-# include <iomanip>
-# include <iostream>
-
-template <typename T>
-void	iter(T *arr, std::size_t size, void (*func)(T const &))
+int	main()
 {
-	if (!arr or !func or size <= 0)
-		return ;
-	for (std::size_t i = 0 ; i < size ; i++)
-		func(arr[i]);
+	int elem = 3;
+	std::vector<int> vec;
+	for (int i = 1; i < 10; i++)
+        vec.push_back(i);
+	try
+	{
+		easyFind(vec, elem);
+		std::cout << "Element \'" << elem << "\' found !\n";
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	return 0;
 }
-
-template <typename T>
-void	print(T &_TP)
-{
-	std::cout << _TP << " ";
-}
-
-#endif

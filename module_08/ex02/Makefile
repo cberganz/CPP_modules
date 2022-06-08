@@ -6,19 +6,19 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 00:03:42 by cberganz          #+#    #+#              #
-#    Updated: 2022/06/07 17:50:36 by cberganz         ###   ########.fr        #
+#    Updated: 2022/06/08 19:10:14 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEADER		= iter.hpp
+HEADER		= MutantStack.hpp
 
-NAME		= iter
+NAME		= MutantStack
 
 CC			= clang++
 
 CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS	 	= 	main.cpp	
+SRCS	 	= main.cpp	
 
 OBJS		= $(SRCS:.cpp=.o)
 
