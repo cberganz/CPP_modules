@@ -6,7 +6,7 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 18:27:17 by cberganz          #+#    #+#             */
-/*   Updated: 2022/06/08 17:05:52 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/06/08 21:57:34 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void Span::printSpan(std::vector<int> vec)
 	}
 }
 
-int	minus(int a, int b)
+int	sub(int a, int b)
 {
 	return std::abs(a - b);
 }
@@ -85,7 +85,7 @@ int Span::shortestSpan()
 	std::vector<int> tmp = m_tab;
 	std::vector<int> ret;
 	std::sort(tmp.begin(), tmp.end());
-	std::transform(tmp.begin() + 1, tmp.end(), tmp.begin(), std::back_inserter(ret), minus);
+	std::transform(tmp.begin() + 1, tmp.end(), tmp.begin(), std::back_inserter(ret), sub);
 	return (*std::min_element(ret.begin(), ret.end()));
 }
 
